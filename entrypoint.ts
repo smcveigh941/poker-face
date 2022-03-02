@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
+import processFile from './src/processFile'
 
 type Args = {
   sourceFile: string
@@ -11,4 +12,4 @@ const vargs = yargs(hideBin(process.argv))
   .command('$0 sourceFile', 'Command to run the script')
   .parse() as unknown as Args
 
-console.log(vargs.sourceFile)
+processFile(vargs.sourceFile)
