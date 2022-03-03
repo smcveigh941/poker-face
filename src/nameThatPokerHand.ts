@@ -1,4 +1,7 @@
-import { PokerHand } from './@types/pokerHand'
+type PokerHand = {
+  hand: string
+  name: string
+}
 
 const ranks = 'A23456789TJQKA'
 
@@ -44,7 +47,7 @@ export default async function nameThatPokerHand(hand: string): Promise<PokerHand
     const cards = hand
       .split(' ')
       .map(card => card.trim())
-      .filter(card => card.length > 0)
+      .filter(card => card.length === 2)
 
     if (cards.length !== 5) {
       return reject(new Error(`${cards.length} cards were supplied, a poker hand must have exactly 5 cards`))
@@ -91,6 +94,10 @@ export default async function nameThatPokerHand(hand: string): Promise<PokerHand
       return resolve({ hand, name: 'One pair' })
     }
 
-    return resolve({ hand, name: 'High card' })
+    if (weights.length === 5) {
+      return resolve({ hand, name: 'High card' })
+    }
+
+    return resolve({ hand, name: 'Unknown' })
   })
 }

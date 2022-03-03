@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint --fix",
-    "test": "jest"
+    "test": "jest --collectCoverage=true"
   },
   "bin": {
     "poker": "./dist/entrypoint.js"
@@ -23,10 +23,10 @@
   "jest": {
     "preset": "ts-jest",
     "collectCoverageFrom": [
-      "server/**/*.{ts,js,jsx,mjs}"
+      "src/**/*.{ts,js,jsx,mjs}"
     ],
     "testMatch": [
-      "<rootDir>/**/?(*.)(spec|test).{ts,js,jsx,mjs}"
+      "<rootDir>/src/**/?(*.)(spec|test).{ts,js,jsx,mjs}"
     ],
     "testEnvironment": "node",
     "moduleFileExtensions": [
@@ -47,6 +47,8 @@
     "yargs": "^17.3.1"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/parser": "^5.13.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.4.0",
@@ -54,9 +56,8 @@
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-import": "2.25.4",
     "eslint-plugin-prettier": "^4.0.0",
+    "jest-mock-console": "^1.2.3",
     "prettier": "^2.4.1",
-    "typescript": "^4.6.2",
-    "@typescript-eslint/eslint-plugin": "^5.13.0",
-    "@typescript-eslint/parser": "^5.13.0"
+    "typescript": "^4.6.2"
   }
 }
