@@ -55,8 +55,6 @@ export default async function nameThatPokerHand(hand: string): Promise<PokerHand
 
     const handIsFlush = isFlush(cards)
     const handIsStraight = isStraight(cards)
-    const weightCount = countWeights(cards)
-    const weights = Array.from(weightCount.keys())
 
     if (handIsFlush && handIsStraight) {
       const isRoyalFlush = sortHandByWeight(cards, true)
@@ -68,6 +66,9 @@ export default async function nameThatPokerHand(hand: string): Promise<PokerHand
       }
       return resolve({ hand, name: 'Straight flush' })
     }
+
+    const weightCount = countWeights(cards)
+    const weights = Array.from(weightCount.keys()) // All unique weights
 
     if (weights.length === 2) {
       if (Array.from(weightCount.values()).includes(4)) {
