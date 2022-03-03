@@ -44,6 +44,12 @@ npm run build
 npm install -g
 ```
 
+Running the program
+=====================
+```bash
+poker hands.txt
+```
+
 Running tests
 =====================
 ```bash
