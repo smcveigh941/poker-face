@@ -33,6 +33,7 @@
         "plugin:prettier/recommended"
       ],
       "rules": {
+        "no-console": "off",
         "no-shadow": "off",
         "@typescript-eslint/no-shadow": "error",
         "@typescript-eslint/no-use-before-define": 0,
